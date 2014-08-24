@@ -1,16 +1,21 @@
+## I want to acknowledge that the basis of this code is originally from 
+## the GitHub repository of Roger D. Peng (rdpeng), moreover that it closely
+## follows the example "Caching the Mean of a Vector" given in the description
+## of Programming Assignment 2.
+
 ## The purpose of the following pair of functions is to save computation time
-## when the inverse of a matrix has to be computed repeteadly. 
-## The first function, "makeCachematrix" is used to creat a the matrix 
-## the inverse of which will be computed. 
-## The second function, "cacheSolve" accesses the matrix, if the inverse of it
-## has not been computed yet then this second function computes it, stores it, 
-## and returns it; and if it has already been calculated then "cacheSolve" 
-## picks it up and returns the inverse. 
+## when matrix inversion is needed repeteadly. 
+## The first function, "makeCachematrix" creats the matrix the inverse of 
+## which will be computed. 
+## The second function, "cacheSolve" accesses the matrix, 
+## i) if the inverse of it has not been computed yet, then "cacheSolve" 
+## computes it, stores it, and returns it; if it has already been calculated 
+## then "cacheSolve" picks it up and returns the value of the inverse. 
 
 ## This function creates a special "matrix" object that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-    I <- NULL                   # I will store the inverse of our matrix
+    I <- NULL                   # "I" will store the inverse of our matrix
     set <- function(y) {
         x <<- y
         I <<- NULL
@@ -24,7 +29,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## This function computes the inverse of the special "matrix" returned by 
+## This function computes the inverse of the special matrix returned by 
 ## "makeCacheMatrix" above. If the inverse has already been calculated, 
 ## then "cacheSolve" should retrieve the inverse from the cache.
 
